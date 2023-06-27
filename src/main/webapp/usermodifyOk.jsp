@@ -57,6 +57,7 @@
     }
 </style>
 <title>개인정보변경</title>
+
 </head>
 <body>
 	<%

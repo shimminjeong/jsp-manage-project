@@ -45,10 +45,11 @@
     }
 
     input[type="text"],
-    input[type="submit"] {
+    input[type="submit"],
+    input[type="email"] {
         padding: 10px;
         margin: 5px;
-        text-align: center; /* 가운데 정렬 */
+        text-align: center;
         width: 200px;
     }
 
@@ -90,7 +91,7 @@
 </style>
 </head>
 <body>
-	<h1>회원정보수정</h1>
+    <h1>회원정보수정</h1>
     <%
     String id = request.getParameter("id");
 
@@ -109,7 +110,7 @@
         </div>
         <div class="form-group">
             <label for="email">이메일</label>
-            <input type="text" name="email" value="<%= dto.getEmail() %>">
+            <input type="email" name="email" value="<%= dto.getEmail() %>">
         </div>
         <input type="hidden" name="id" value="<%= dto.getId() %>">
         <input type="hidden" name="pw" value="<%= dto.getPw() %>">
@@ -120,4 +121,5 @@
 
     <a href="adminmain.jsp" class="button-link">메인메뉴</a>
 </body>
+
 </html>

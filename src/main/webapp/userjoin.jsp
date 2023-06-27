@@ -39,11 +39,13 @@
 
     input[type="text"],
     input[type="password"],
-    input[type="submit"] {
+    input[type="submit"],
+    input[type="email"] {
         padding: 10px;
         margin: 5px;
         text-align: center; /* 가운데 정렬 */
         width: 200px;
+        box-sizing: border-box; /* 내용 포함한 전체 크기 지정 */
     }
 
     input[type="submit"] {
@@ -61,10 +63,31 @@
     }
 </style>
 <title>회원가입</title>
+<script>
+    function validateForm() {
+    	
+    	var pw = document.getElementById("pw").value;
+    	var phone = document.getElementById("phone").value;
+
+        var pwRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{4,}$/;
+        if (!pwRegex.test(pw)) {
+            alert("비밀번호는 영문과 숫자로만 구성되어야 하며, 최소 4글자 이상이어야 합니다.");
+            return false;
+        }
+        
+        var phoneRegex = /^\d{3}-\d{4}-\d{4}$/;
+        if (!phoneRegex.test(phone)) {
+            alert("전화번호는 010-0000-0000 형태로 입력해주세요.");
+            return false;
+        }
+        
+        return true;
+    }
+</script>
 </head>
 <body>
 <h1>회원가입</h1>
-    <form action="userjoinOk.jsp" method="post">
+    <form action="userjoinOk.jsp" method="post"  onsubmit="return validateForm()">
         <div class="form-group">
             <label for="name">이름</label>
             <input type="text" name="name" id="name">
@@ -79,11 +102,11 @@
         </div>
         <div class="form-group">
             <label for="phone">전화번호</label>
-            <input type="text" name="phone" id="phone">
+            <input type="text" name="phone" id="phone"  >
         </div>
         <div class="form-group">
             <label for="email">이메일</label>
-            <input type="text" name="email" id="email">
+            <input type="email" name="email" id="email">
         </div>
         <input type="submit" value="회원가입">
     </form>

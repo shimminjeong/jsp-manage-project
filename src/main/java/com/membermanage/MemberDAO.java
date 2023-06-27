@@ -155,12 +155,11 @@ public class MemberDAO {
 			pstmt.setString(6, id);
 
 			int iResult = pstmt.executeUpdate();
-			System.out.println("여기");
 
 			if (iResult >= 1) {
 				System.out.println("update success");
 			} else {
-				System.out.println("update fail");
+//				System.out.println("update fail");
 			}
 
 		} catch (Exception e) {
@@ -216,9 +215,8 @@ public class MemberDAO {
 
 			}
 		} catch (SQLException e) {
-			System.out.println("해당 아이디는 중복아이디입니다.");
 
-//			e.printStackTrace();
+			e.printStackTrace();
 
 		} catch (Exception e) {
 
@@ -241,7 +239,6 @@ public class MemberDAO {
 	
 	// 회원탈퇴
 	public void memberDelete(String id) {
-		System.out.print(id);
 		
 		query = "DELETE FROM USERS WHERE ID=?";
 

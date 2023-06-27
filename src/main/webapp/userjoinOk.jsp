@@ -56,9 +56,9 @@
 
     if (name == "" || id == "" || pw == "") {
         out.println("<script>alert('이름, 아이디, 비밀번호를 모두 입력해주세요.');history.back();</script>");
-    } else if (!pw.matches("^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{4,}$")) {
+    } /* else if (!pw.matches("^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{4,}$")) {
         out.println("<script>alert('비밀번호는 영문과 숫자로만 구성되어야 하며, 최소 4글자 이상이어야 합니다.');history.back();</script>");
-    } else {
+    } */ else {
         MemberDAO memberdao = new MemberDAO();
         dto = memberdao.memberId(id);
         if (dto == null) {
@@ -71,6 +71,6 @@
         <script>alert('해당 아이디는 현재 존재하고 있습니다.'); history.back();</script>
     <% } }%>
     </br>
-    <a href="usermenu.jsp" class="button">메인</a>
+    <a href="main.jsp" class="button">메인</a>
     </body>
 </html>

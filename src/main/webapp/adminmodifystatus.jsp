@@ -104,7 +104,7 @@
             <td><%= dto.getName() %></td>
             <td><%= dto.getId() %></td>
             <td><%= dto.getPw() %></td>
-            <td><%= dto.getPhone() %></td>
+            <td>010-XXXX-XXXX</td>
             <td><%= dto.getEmail() %></td>
             <td>
                 <form action="adminmodifystatusOk.jsp" method="post">
@@ -116,17 +116,21 @@
                     <input type="hidden" name="authority" value="<%= dto.getAuthority() %>">
                     <% if (dto.getStatus().equals("일시정지")) { %>
                     <%= dto.getStatus() %>
-                    <input type="hidden" name="status" value="<%= dto.getStatus() %>">
+                    <input type="hidden" name="status" value="<%= dto.getStatus() %>"></td>
+                    <td>
+                		<input type="submit" value="탈퇴승인">
+            		</td>
                     <% } else { %>
                     <select name="status">
                         <option value="정상" <%= dto.getStatus().equals("정상") ? "selected" : "" %>>정상</option>
                         <option value="승인전" <%= dto.getStatus().equals("승인전") ? "selected" : "" %>>승인전</option>
                     </select>
                     </td>
+                    <td>
+                		<input type="submit" value="상태변경">
+            		</td>
                     <% } %>
-            <td>
-                <input type="submit" value="상태변경">
-            </td>
+            
             </form>
         </tr>
         <% } %>

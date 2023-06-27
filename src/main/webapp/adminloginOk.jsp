@@ -10,6 +10,10 @@
 </head>
 <body>
 	<%
+	
+	if (session.getAttribute("ValidMem")!=null){
+		session.invalidate();
+	}
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
 
